@@ -72,6 +72,7 @@ O sistema segue o modelo **SPA + API**: o frontend roda no navegador e consome u
 ├── package.json
 ├── .env                  # Variáveis de ambiente (não versionado)
 └── database.sqlite       # Banco gerado automaticamente
+```
 
 
 ## Como Executar
