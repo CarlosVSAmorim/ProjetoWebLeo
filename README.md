@@ -33,8 +33,6 @@ O sistema segue o modelo **SPA + API**: o frontend roda no navegador e consome u
 
 ## Estrutura de Pastas
 
-## 📁 Estrutura de Pastas
-
 ```text
 /
 ├── css/
