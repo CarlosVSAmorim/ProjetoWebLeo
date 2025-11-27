@@ -34,42 +34,42 @@ O sistema segue o modelo **SPA + API**: o frontend roda no navegador e consome u
 ## Estrutura de Pastas
 
 /
-css/
-base.css
-layout.css
-components-main.css
-modal-mesas.css
-relatorio.css
-user-auth-ui.css
-print.css
-login-style.css
+├── css/
+│   ├── base.css
+│   ├── layout.css
+│   ├── components-main.css
+│   ├── modal-mesas.css
+│   ├── relatorio.css
+│   ├── user-auth-ui.css
+│   ├── print.css
+│   └── login-style.css
+│
+├── js/
+│   ├── auth.js          # Autenticação frontend + gestão de usuários
+│   ├── storage.js       # Persistência em localStorage
+│   ├── core.js          # Bootstrap do app
+│   ├── nav.js           # Navegação SPA
+│   ├── mesa.js          # Gestão de mesas
+│   ├── cardapio.js      # CRUD de cardápio
+│   ├── pedidos.js       # Gestão de pedidos
+│   ├── estoque.js       # CRUD do estoque
+│   ├── relatorios.js    # Relatórios e estatísticas
+│   └── garcons.js       # Gestão de garçons + ranking/comissões
+│
+├── projeto/
+│   ├── login.html       # Tela de login
+│   └── index.html       # SPA principal
+│
+├── routes/
+│   └── auth.js          # Rotas de autenticação e usuários
+│
+├── authMiddleware.js     # requireAuth / requireAdmin
+├── db.js                 # Conexão SQLite + criação do usuário admin
+├── server.js             # Servidor Express
+├── package.json
+├── .env                  # Variáveis de ambiente (não versionado)
+└── database.sqlite       # Banco gerado automaticamente
 
-js/
-auth.js # autenticação frontend, sessão e tela de usuários (admin)
-storage.js # salvar/carregar dados no localStorage
-core.js # bootstrap do app (carrega dados, inicializa telas)
-nav.js # navegação entre abas
-mesa.js # gestão de mesas + modal de detalhes
-cardapio.js # CRUD local de itens do cardápio
-pedidos.js # renderização e remoção de pedidos
-estoque.js # CRUD local de estoque
-relatorios.js # relatórios e estatísticas
-garcons.js # gestão de garçons, ranking e comissões
-
-projeto/
-login.html # tela de login (SPA inicia aqui)
-index.html # SPA principal do sistema
-
-db.js # conexão SQLite e criação da tabela users + admin padrão
-authMiddleware.js # middlewares requireAuth / requireAdmin
-server.js # servidor Express e registro das rotas
-routes/
-auth.js # rotas de autenticação e usuários
-.env # variáveis de ambiente (não versionado)
-package.json
-database.sqlite # banco gerado em tempo de execução
-
-text
 
 ## Como Executar
 
