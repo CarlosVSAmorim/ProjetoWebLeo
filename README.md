@@ -34,42 +34,44 @@ O sistema segue o modelo **SPA + API**: o frontend roda no navegador e consome u
 ## Estrutura de Pastas
 
 /
-  css/
-    base.css
-    layout.css
-    components-main.css
-    modal-mesas.css
-    relatorio.css
-    user-auth-ui.css
-    print.css
-    login-style.css
+css/
+base.css
+layout.css
+components-main.css
+modal-mesas.css
+relatorio.css
+user-auth-ui.css
+print.css
+login-style.css
 
-  js/
-    auth.js
-    storage.js
-    core.js
-    nav.js
-    mesa.js
-    cardapio.js
-    pedidos.js
-    estoque.js
-    relatorios.js
-    garcons.js
+js/
+auth.js
+storage.js
+core.js
+nav.js
+mesa.js
+cardapio.js
+pedidos.js
+estoque.js
+relatorios.js
+garcons.js
 
-  projeto/
-    login.html
-    index.html
+projeto/
+login.html
+index.html
 
-  routes/
-    auth.js
+routes/
+auth.js
 
-  db.js
-  authMiddleware.js
-  server.js
-  package.json
-  .env
-  database.sqlite   (gerado em tempo de execução)
+db.js
+authMiddleware.js
+server.js
+package.json
+.env
+database.sqlite (gerado em tempo de execução)
 
+text
+undefined
 
 
 ## Como Executar
