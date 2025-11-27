@@ -1,0 +1,27 @@
+@media print {
+    body {
+        background: white;
+    }
+
+    .navbar {
+        background: white;
+        color: black;
+    }
+
+    .nav-buttons,
+    .btn,
+    .btn-logout,
+    .acoes-relatorio {
+        display: none !important;
+    }
+
+    .glass-card {
+        page-break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+
+    .section h2 {
+        page-break-after: avoid;
+    }
+}

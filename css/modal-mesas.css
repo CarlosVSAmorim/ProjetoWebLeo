@@ -1,0 +1,313 @@
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 0;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-header {
+    background: var(--primary-color);
+    color: white;
+    padding: 20px 24px;
+    border-radius: 12px 12px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+    color: white;
+    border: none;
+}
+
+.modal-header h2::after {
+    display: none;
+}
+
+.modal-close {
+    color: white;
+    font-size: 32px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+    transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+    transform: scale(1.2);
+    opacity: 0.8;
+}
+
+.modal-body {
+    padding: 24px;
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.mesa-info {
+    background: var(--bg-light);
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.mesa-info p {
+    margin: 8px 0;
+    font-size: 15px;
+    color: var(--text-dark);
+}
+
+.badge {
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    display: inline-block;
+}
+
+.badge.livre {
+    background: var(--success-color);
+    color: white;
+}
+
+.badge.ocupada {
+    background: var(--danger-color);
+    color: white;
+}
+
+.destaque-valor {
+    color: var(--success-color);
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.pedidos-mesa-lista {
+    margin-top: 16px;
+}
+
+.pedido-mesa-item {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--accent-color);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.pedido-mesa-info {
+    flex: 1;
+}
+
+.pedido-mesa-info h4 {
+    color: var(--text-dark);
+    font-size: 16px;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.pedido-mesa-info p {
+    color: var(--text-medium);
+    font-size: 14px;
+    margin: 4px 0;
+}
+
+.pedido-data {
+    color: var(--text-light);
+    font-size: 12px !important;
+    margin-top: 8px;
+}
+
+.texto-vazio {
+    text-align: center;
+    color: var(--text-light);
+    padding: 20px;
+    font-style: italic;
+}
+
+.modal-actions {
+    margin-top: 24px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.modal-actions .btn {
+    margin-top: 0;
+    flex: 1;
+    min-width: fit-content;
+}
+
+/* Agrupamento de pedidos por mesa (na lista principal) */
+.pedidos-mesa-grupo {
+    background: var(--bg-light);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 20px;
+    border: 2px solid var(--border-color);
+}
+
+.pedidos-mesa-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.pedidos-mesa-header h4 {
+    color: var(--primary-color);
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.mesa-total-badge {
+    background: var(--primary-color);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.pedidos-mesa-itens {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.pedidos-mesa-itens .pedido-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    background: white;
+    border: 1px solid var(--border-color);
+    flex-wrap: wrap;
+}
+
+/* Resumo na mesa */
+.mesa-resumo {
+    margin-top: 12px;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.mesa-resumo p {
+    margin: 4px 0;
+    font-size: 14px;
+    color: var(--text-dark);
+}
+
+.mesa-total {
+    color: var(--success-color);
+    font-weight: 700;
+    font-size: 16px !important;
+}
+
+/* Responsividade modal */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        margin: 10% auto;
+    }
+
+    .modal-header {
+        padding: 16px;
+    }
+
+    .modal-header h2 {
+        font-size: 20px;
+    }
+
+    .modal-body {
+        padding: 16px;
+        max-height: 60vh;
+    }
+
+    .modal-actions {
+        flex-direction: column;
+    }
+
+    .modal-actions .btn {
+        width: 100%;
+    }
+
+    .pedido-mesa-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .pedido-mesa-item .btn {
+        width: 100%;
+    }
+
+    .pedidos-mesa-header {
+        flex-direction: column;
+        gap: 8px;
+        align-items: flex-start;
+    }
+
+    .mesa-total-badge {
+        align-self: stretch;
+        text-align: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .modal-content {
+        width: 100%;
+        margin: 0;
+        border-radius: 0;
+        height: 100%;
+        max-width: none;
+    }
+
+    .modal-header {
+        border-radius: 0;
+    }
+
+    .modal-body {
+        max-height: calc(100vh - 80px);
+    }
+}

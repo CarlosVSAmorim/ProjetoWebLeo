@@ -1,0 +1,256 @@
+/* Navbar */
+.navbar {
+    background: var(--primary-color);
+    padding: clamp(16px, 3vw, 24px) clamp(16px, 4vw, 32px);
+    color: white;
+    border-bottom: 3px solid var(--primary-dark);
+}
+
+.navbar h1 {
+    margin-bottom: clamp(12px, 2vw, 20px);
+    font-size: clamp(20px, 4vw, 32px);
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
+/* Navegação */
+.nav-buttons {
+    display: flex;
+    gap: clamp(6px, 1.5vw, 12px);
+    flex-wrap: wrap;
+}
+
+.nav-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: clamp(8px, 2vw, 12px) clamp(12px, 3vw, 24px);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: clamp(12px, 2vw, 15px);
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex: 1 1 auto;
+    justify-content: center;
+    min-width: fit-content;
+}
+
+.nav-btn .icon {
+    font-size: clamp(14px, 2.5vw, 18px);
+}
+
+.nav-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+.nav-btn:active {
+    transform: translateY(0);
+}
+
+.nav-btn.active {
+    background: white;
+    color: var(--primary-color);
+    border-color: white;
+    font-weight: 600;
+}
+
+/* Sections */
+.section {
+    display: none;
+    padding: clamp(16px, 4vw, 32px);
+    animation: fadeIn 0.4s ease;
+}
+
+.section.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.section h2 {
+    color: var(--text-dark);
+    margin-bottom: clamp(16px, 3vw, 28px);
+    font-size: clamp(20px, 4vw, 28px);
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+/* Grid Container */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
+    gap: clamp(16px, 3vw, 24px);
+    margin-top: clamp(16px, 3vw, 24px);
+}
+
+/* Mesas Grid */
+.mesas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 180px), 1fr));
+    gap: clamp(12px, 3vw, 24px);
+    margin-top: clamp(16px, 3vw, 24px);
+}
+
+/* Stats Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+    gap: clamp(16px, 3vw, 24px);
+    margin-bottom: clamp(24px, 4vw, 32px);
+}
+
+/* Responsividade geral */
+@media (max-width: 992px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+
+    .mesas-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+
+    .navbar h1 {
+        text-align: center;
+    }
+
+    .nav-buttons {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .navbar {
+        padding: 16px 20px;
+    }
+
+    .nav-btn {
+        flex: 1 1 calc(50% - 6px);
+        max-width: calc(50% - 6px);
+    }
+
+    .section {
+        padding: 20px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .glass-card {
+        padding: 16px;
+    }
+
+    .cardapio-item {
+        flex-direction: column;
+    }
+
+    .cardapio-actions {
+        width: 100%;
+    }
+
+    .cardapio-actions button {
+        flex: 1;
+    }
+}
+
+@media (max-width: 576px) {
+    body {
+        padding: 8px;
+    }
+
+    .nav-btn {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .mesas-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .filter-buttons {
+        gap: 6px;
+    }
+
+    .filter-btn {
+        flex: 1 1 auto;
+        min-width: fit-content;
+    }
+
+    .pedidos-lista,
+    .cardapio-lista,
+    .estoque-lista {
+        max-height: 400px;
+    }
+
+    .ranking-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .ranking-item .nome {
+        min-width: 100%;
+    }
+}
+
+@media (max-width: 380px) {
+    .navbar h1 {
+        font-size: 18px;
+    }
+
+    .section h2 {
+        font-size: 18px;
+    }
+
+    .mesas-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .mesa-card {
+        padding: 16px;
+    }
+
+    .btn {
+        padding: 12px 16px;
+        font-size: 13px;
+    }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+    .navbar {
+        padding: 12px 20px;
+    }
+
+    .navbar h1 {
+        margin-bottom: 8px;
+        font-size: 20px;
+    }
+
+    .section {
+        padding: 16px;
+    }
+
+    .pedidos-lista,
+    .cardapio-lista,
+    .estoque-lista {
+        max-height: 300px;
+    }
+}

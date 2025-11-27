@@ -1,0 +1,354 @@
+/* Cards principais */
+.glass-card {
+    background: var(--bg-white);
+    border-radius: clamp(8px, 1.5vw, 12px);
+    padding: clamp(16px, 3vw, 28px);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--accent-color);
+}
+
+.glass-card h3 {
+    color: var(--primary-color);
+    margin-bottom: clamp(16px, 3vw, 24px);
+    font-size: clamp(16px, 3vw, 22px);
+    font-weight: 600;
+}
+
+/* Mesas */
+.mesa-card {
+    background: var(--bg-white);
+    border-radius: 12px;
+    padding: clamp(16px, 3vw, 24px);
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 2px solid var(--border-color);
+}
+
+.mesa-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.mesa-card.livre {
+    border-color: var(--success-color);
+    background: #eafaf1;
+}
+
+.mesa-card.ocupada {
+    border-color: var(--danger-color);
+    background: #fadbd8;
+}
+
+.mesa-card h3 {
+    color: var(--text-dark);
+    margin-bottom: 12px;
+    font-size: clamp(16px, 3vw, 20px);
+    font-weight: 600;
+}
+
+.mesa-icon {
+    font-size: clamp(32px, 6vw, 48px);
+    margin: 16px 0;
+    opacity: 0.7;
+}
+
+.mesa-status {
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: clamp(12px, 2vw, 14px);
+    display: inline-block;
+    margin: 16px 0;
+}
+
+.mesa-status.livre {
+    background: var(--success-color);
+    color: white;
+}
+
+.mesa-status.ocupada {
+    background: var(--danger-color);
+    color: white;
+}
+
+/* Listas com scroll */
+.pedidos-lista,
+.cardapio-lista,
+.estoque-lista {
+    max-height: 500px;
+    overflow-y: auto;
+    padding-right: 8px;
+}
+
+.pedidos-lista::-webkit-scrollbar,
+.cardapio-lista::-webkit-scrollbar,
+.estoque-lista::-webkit-scrollbar {
+    width: 6px;
+}
+
+.pedidos-lista::-webkit-scrollbar-track,
+.cardapio-lista::-webkit-scrollbar-track,
+.estoque-lista::-webkit-scrollbar-track {
+    background: var(--bg-light);
+    border-radius: 10px;
+}
+
+.pedidos-lista::-webkit-scrollbar-thumb,
+.cardapio-lista::-webkit-scrollbar-thumb,
+.estoque-lista::-webkit-scrollbar-thumb {
+    background: var(--text-light);
+    border-radius: 10px;
+}
+
+.pedidos-lista::-webkit-scrollbar-thumb:hover,
+.cardapio-lista::-webkit-scrollbar-thumb:hover,
+.estoque-lista::-webkit-scrollbar-thumb:hover {
+    background: var(--text-medium);
+}
+
+/* Pedido item */
+.pedido-item {
+    background: var(--bg-white);
+    padding: clamp(14px, 2.5vw, 20px);
+    margin-bottom: 16px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--accent-color);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+}
+
+.pedido-item:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.pedido-item h4 {
+    color: var(--text-dark);
+    margin-bottom: 12px;
+    font-size: clamp(14px, 2.5vw, 18px);
+    font-weight: 600;
+}
+
+.pedido-item p {
+    color: var(--text-medium);
+    margin: 8px 0;
+    font-size: clamp(12px, 2vw, 14px);
+}
+
+.pedido-item strong {
+    color: var(--text-dark);
+}
+
+/* Filtros cardápio */
+.filter-buttons {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: clamp(8px, 1.5vw, 10px) clamp(12px, 2.5vw, 18px);
+    border: 2px solid var(--border-color);
+    background: var(--bg-white);
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: clamp(12px, 2vw, 14px);
+    font-weight: 500;
+    color: var(--text-dark);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    min-height: 40px;
+}
+
+.filter-btn:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    background: var(--bg-light);
+}
+
+.filter-btn.active {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+/* Cardápio */
+.cardapio-item {
+    background: var(--bg-white);
+    padding: clamp(14px, 2.5vw, 18px);
+    margin-bottom: 12px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: all 0.3s ease;
+}
+
+.cardapio-item:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--accent-color);
+}
+
+.cardapio-info {
+    flex: 1;
+}
+
+.cardapio-info h4 {
+    color: var(--text-dark);
+    font-size: clamp(14px, 2.5vw, 16px);
+    margin-bottom: 6px;
+    font-weight: 600;
+    word-wrap: break-word;
+}
+
+.cardapio-info .categoria {
+    display: inline-block;
+    padding: 4px 10px;
+    background: var(--bg-light);
+    color: var(--text-medium);
+    border-radius: 4px;
+    font-size: clamp(11px, 1.8vw, 12px);
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+
+.cardapio-info .descricao {
+    color: var(--text-medium);
+    font-size: clamp(11px, 1.8vw, 13px);
+    margin-top: 6px;
+    word-wrap: break-word;
+}
+
+.cardapio-info .preco {
+    color: var(--success-color);
+    font-size: clamp(16px, 3vw, 18px);
+    font-weight: 700;
+    margin-top: 8px;
+}
+
+.cardapio-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+/* Estoque */
+.estoque-item {
+    background: var(--bg-white);
+    padding: clamp(14px, 2.5vw, 18px);
+    margin-bottom: 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+    flex-wrap: wrap;
+}
+
+.estoque-item:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.estoque-item.baixo {
+    border-left: 4px solid var(--danger-color);
+    background: #fadbd8;
+}
+
+.estoque-item.normal {
+    border-left: 4px solid var(--success-color);
+}
+
+/* Cards de estatísticas */
+.stat-card {
+    background: var(--bg-white);
+    padding: clamp(20px, 4vw, 28px);
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    border: 2px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--accent-color);
+}
+
+.stat-icon {
+    font-size: clamp(36px, 6vw, 48px);
+    margin-bottom: 12px;
+    opacity: 0.7;
+}
+
+.stat-card h3 {
+    font-size: clamp(12px, 2vw, 15px);
+    color: var(--text-medium);
+    margin-bottom: 16px;
+    font-weight: 500;
+}
+
+.stat-value {
+    font-size: clamp(24px, 5vw, 36px);
+    font-weight: 700;
+    margin: 0;
+    color: var(--primary-color);
+}
+
+/* Ranking - itens mais vendidos (relatório geral) */
+.ranking-lista {
+    padding: 20px 0;
+}
+
+.ranking-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: clamp(12px, 2.5vw, 16px) clamp(14px, 3vw, 20px);
+    margin-bottom: 12px;
+    background: var(--bg-white);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.ranking-item:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--accent-color);
+}
+
+.ranking-item .nome {
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: clamp(13px, 2.5vw, 16px);
+    flex: 1;
+    min-width: 120px;
+    word-wrap: break-word;
+}
+
+.ranking-item .quantidade {
+    background: var(--primary-color);
+    color: white;
+    padding: clamp(6px, 1.5vw, 8px) clamp(12px, 2.5vw, 18px);
+    border-radius: 6px;
+    font-size: clamp(12px, 2vw, 14px);
+    font-weight: 600;
+    white-space: nowrap;
+}

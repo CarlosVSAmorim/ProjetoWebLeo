@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gerenciamento de Restaurante</title>
+
+    <!-- CSS (pastas css um nível acima) -->
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/components-main.css">
+    <link rel="stylesheet" href="../css/modal-mesas.css">
+    <link rel="stylesheet" href="../css/user-auth-ui.css">
+    <link rel="stylesheet" href="../css/print.css" media="print">
+
+    <!-- Autenticação -->
+    <script src="../js/auth.js"></script>
+    <script>
+        protectPage();
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <h1>🍽️ Restaurante Manager</h1>
+            <div class="nav-buttons">
+                <button class="nav-btn active" onclick="showSection('pedidos')">
+                    <span class="icon">📋</span> Pedidos
+                </button>
+                <button class="nav-btn" onclick="showSection('mesas')">
+                    <span class="icon">🪑</span> Mesas
+                </button>
+                <button class="nav-btn" onclick="showSection('cardapio')">
+                    <span class="icon">📖</span> Cardápio
+                </button>
+                <button class="nav-btn" onclick="showSection('garcons')">
+                    <span class="icon">👥</span> Garçons
+                </button>
+                <button class="nav-btn" onclick="showSection('estoque')">
+                    <span class="icon">📦</span> Estoque
+                </button>
+                <button class="nav-btn" onclick="showSection('usuarios')">
+                    <span class="icon">👤</span> Usuários
+                </button>
+            </div>
+        </nav>
+
+        <!-- PEDIDOS -->
+        <section id="pedidos" class="section active">
+            <h2>Gerenciamento de Pedidos</h2>
+            <div class="grid-container">
+                <div class="glass-card">
+                    <h3>Novo Pedido</h3>
+                    <form id="formPedido">
+                        <label>Mesa:</label>
+                        <select id="mesaPedido" required>
+                            <option value="">Selecione</option>
+                        </select>
+
+                        <label>Item do Menu:</label>
+                        <select id="itemMenu" required>
+                            <option value="">Selecione</option>
+                        </select>
+
+                        <label>Quantidade:</label>
+                        <input type="number" id="quantidade" min="1" value="1" required>
+
+                        <!-- select de garçom é inserido via JS (atualizarSelectGarcons) -->
+
+                        <button type="submit" class="btn btn-primary">
+                            <span>✓</span> Adicionar Pedido
+                        </button>
+                    </form>
+                </div>
+
+                <div class="glass-card">
+                    <h3>Pedidos Ativos</h3>
+                    <div id="listaPedidos" class="pedidos-lista"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MESAS -->
+        <section id="mesas" class="section">
+            <h2>Gerenciamento de Mesas</h2>
+            <div class="mesas-grid" id="mesasGrid"></div>
+        </section>
+
+        <!-- CARDÁPIO -->
+        <section id="cardapio" class="section">
+            <h2>Gerenciamento do Cardápio</h2>
+            <div class="grid-container">
+                <div class="glass-card">
+                    <h3>Adicionar Item ao Cardápio</h3>
+                    <form id="formCardapio">
+                        <label>Nome do Prato:</label>
+                        <input type="text" id="nomePrato" placeholder="Ex: Pizza Margherita" required>
+
+                        <label>Preço (R$):</label>
+                        <input type="number" id="precoPrato" min="0" step="0.01" placeholder="Ex: 35.00" required>
+
+                        <label>Categoria:</label>
+                        <select id="categoriaPrato" required>
+                            <option value="Pratos Principais">Pratos Principais</option>
+                            <option value="Massas">Massas</option>
+                            <option value="Pizzas">Pizzas</option>
+                            <option value="Saladas">Saladas</option>
+                            <option value="Bebidas">Bebidas</option>
+                            <option value="Sobremesas">Sobremesas</option>
+                        </select>
+
+                        <label>Descrição:</label>
+                        <textarea id="descricaoPrato" placeholder="Descrição opcional" rows="3"></textarea>
+
+                        <button type="submit" class="btn btn-primary">
+                            <span>+</span> Adicionar ao Cardápio
+                        </button>
+                    </form>
+                </div>
+
+                <div class="glass-card">
+                    <h3>Cardápio Atual</h3>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" onclick="filtrarCardapio('todos')">Todos</button>
+                        <button class="filter-btn" onclick="filtrarCardapio('Pratos Principais')">Pratos</button>
+                        <button class="filter-btn" onclick="filtrarCardapio('Pizzas')">Pizzas</button>
+                        <button class="filter-btn" onclick="filtrarCardapio('Bebidas')">Bebidas</button>
+                    </div>
+                    <div id="listaCardapio" class="cardapio-lista"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ESTOQUE -->
+        <section id="estoque" class="section">
+            <h2>Controle de Estoque</h2>
+            <div class="grid-container">
+                <div class="glass-card">
+                    <h3>Adicionar Item ao Estoque</h3>
+                    <form id="formEstoque">
+                        <label>Nome do Produto:</label>
+                        <input type="text" id="nomeProduto" placeholder="Ex: Tomate" required>
+
+                        <label>Quantidade:</label>
+                        <input type="number" id="qtdProduto" min="0" step="0.1" placeholder="Ex: 50" required>
+
+                        <label>Unidade:</label>
+                        <select id="unidadeProduto" required>
+                            <option value="kg">Quilogramas (kg)</option>
+                            <option value="un">Unidades (un)</option>
+                            <option value="l">Litros (l)</option>
+                        </select>
+
+                        <button type="submit" class="btn btn-primary">
+                            <span>+</span> Adicionar ao Estoque
+                        </button>
+                    </form>
+                </div>
+
+                <div class="glass-card">
+                    <h3>Estoque Atual</h3>
+                    <div id="listaEstoque" class="estoque-lista"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="garcons" class="section">
+            <h2>Gestão de Garçons</h2>
+
+            <div class="grid-container">
+                <div class="glass-card">
+                    <h3>➕ Cadastrar Garçom</h3>
+                    <form id="formGarcom">
+                        <label>Nome do Garçom:</label>
+                        <input type="text" id="nomeGarcom" placeholder="Ex: João Silva" required>
+
+                        <button type="submit" class="btn btn-primary">
+                            <span>✓</span> Cadastrar Garçom
+                        </button>
+                    </form>
+                </div>
+
+                <div class="glass-card">
+                    <h3>👥 Garçons Cadastrados</h3>
+                    <div id="listaGarcons" class="garcons-lista"></div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- USUÁRIOS (apenas admin) -->
+    <section id="usuarios" class="section">
+        <h2>Cadastro de Usuários (Admin)</h2>
+
+        <div class="grid-container">
+            <div class="glass-card">
+                <h3>➕ Novo Usuário</h3>
+                <form id="formUsuario">
+                    <label>Nome:</label>
+                    <input type="text" id="nomeUsuario" placeholder="Nome completo" required>
+
+                    <label>Email (login):</label>
+                    <input type="email" id="emailUsuario" placeholder="ex: garcom1@local" required>
+
+                    <label>Senha:</label>
+                    <input type="password" id="senhaUsuario" placeholder="Senha inicial" required>
+
+                    <label>Tipo de usuário:</label>
+                    <select id="roleUsuario">
+                        <option value="user" selected>Usuário comum</option>
+                        <option value="admin">Administrador</option>
+                    </select>
+
+                    <button type="submit" class="btn btn-primary">
+                        <span>✓</span> Criar Usuário
+                    </button>
+                </form>
+
+                <div id="usuarioMsg" class="error-message" style="display:none; margin-top:10px;"></div>
+            </div>
+
+            <div class="glass-card">
+                <h3>Usuários Cadastrados</h3>
+                <div id="listaUsuarios" class="usuarios-lista"></div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Scripts (pastas js um nível acima) -->
+    <script src="../js/storage.js"></script>
+    <script src="../js/core.js"></script>
+    <script src="../js/nav.js"></script>
+    <script src="../js/cardapio.js"></script>
+    <script src="../js/estoque.js"></script>
+    <script src="../js/mesa.js"></script>
+    <script src="../js/pedidos.js"></script>
+    <script src="../js/garcons.js"></script>
+</body>
+
+</html>
