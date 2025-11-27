@@ -33,45 +33,45 @@ O sistema segue o modelo **SPA + API**: o frontend roda no navegador e consome u
 
 ## Estrutura de Pastas
 
+## 📁 Estrutura de Pastas
+
+```text
 /
-css/
-base.css
-layout.css
-components-main.css
-modal-mesas.css
-relatorio.css
-user-auth-ui.css
-print.css
-login-style.css
-
-js/
-auth.js
-storage.js
-core.js
-nav.js
-mesa.js
-cardapio.js
-pedidos.js
-estoque.js
-relatorios.js
-garcons.js
-
-projeto/
-login.html
-index.html
-
-routes/
-auth.js
-
-db.js
-authMiddleware.js
-server.js
-package.json
-.env
-database.sqlite (gerado em tempo de execução)
-
-text
-undefined
+├── css/
+│   ├── base.css
+│   ├── layout.css
+│   ├── components-main.css
+│   ├── modal-mesas.css
+│   ├── relatorio.css
+│   ├── user-auth-ui.css
+│   ├── print.css
+│   └── login-style.css
+│
+├── js/
+│   ├── auth.js          # Autenticação frontend + gestão de usuários
+│   ├── storage.js       # Persistência em localStorage
+│   ├── core.js          # Bootstrap do app
+│   ├── nav.js           # Navegação SPA
+│   ├── mesa.js          # Gestão de mesas
+│   ├── cardapio.js      # CRUD de cardápio
+│   ├── pedidos.js       # Gestão de pedidos
+│   ├── estoque.js       # CRUD do estoque
+│   ├── relatorios.js    # Relatórios e estatísticas
+│   └── garcons.js       # Gestão de garçons + ranking/comissões
+│
+├── projeto/
+│   ├── login.html       # Tela de login
+│   └── index.html       # SPA principal
+│
+├── routes/
+│   └── auth.js          # Rotas de autenticação e usuários
+│
+├── authMiddleware.js     # requireAuth / requireAdmin
+├── db.js                 # Conexão SQLite + criação do admin
+├── server.js             # Servidor Express
+├── package.json
+├── .env                  # Variáveis de ambiente (não versionado)
+└── database.sqlite       # Banco gerado automaticamente
 
 
 ## Como Executar
