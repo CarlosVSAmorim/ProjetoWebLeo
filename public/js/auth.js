@@ -24,7 +24,10 @@ async function handleLogin(e) {
         }
 
         const userData = await res.json(); // { id, name, email, role }
-        sessionStorage.setItem('userSession', JSON.stringify(userData));
+
+        // >>> SALVA USUÁRIO LOGADO COM ROLE NO localStorage <<<
+        localStorage.setItem('currentUser', JSON.stringify(userData));
+
         window.location.href = 'index.html';
     } catch (err) {
         console.error(err);
@@ -34,11 +37,12 @@ async function handleLogin(e) {
 }
 
 function isAuthenticated() {
-    return sessionStorage.getItem('userSession') !== null;
+    // passa a checar localStorage
+    return localStorage.getItem('currentUser') !== null;
 }
 
 function getCurrentUser() {
-    const s = sessionStorage.getItem('userSession');
+    const s = localStorage.getItem('currentUser');
     return s ? JSON.parse(s) : null;
 }
 
@@ -47,7 +51,8 @@ function logout() {
         method: 'POST',
         credentials: 'include'
     }).finally(() => {
-        sessionStorage.removeItem('userSession');
+        // limpa currentUser
+        localStorage.removeItem('currentUser');
         window.location.href = 'login.html';
     });
 }
@@ -60,7 +65,6 @@ function protectPage() {
 
 // ========= INICIALIZAÇÃO =========
 
-// liga eventos assim que o script for carregado
 (function () {
     const path = window.location.pathname;
 

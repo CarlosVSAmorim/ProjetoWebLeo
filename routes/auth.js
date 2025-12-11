@@ -33,9 +33,12 @@ router.post('/login', (req, res) => {
     res
       .cookie('token', token, {
         httpOnly: true,
-        sameSite: 'Lax'
+        secure: false,
+        sameSite: 'lax'
       })
       .json(payload);
+
+
   });
 });
 
@@ -74,6 +77,7 @@ router.post('/register', requireAuth, requireAdmin, async (req, res) => {
     }
   );
 });
+
 
 // GET /api/auth/users (apenas admin)
 router.get('/users', requireAuth, requireAdmin, (req, res) => {

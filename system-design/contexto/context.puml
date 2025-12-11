@@ -1,0 +1,16 @@
+@startuml
+title Contexto - Restaurante Manager
+
+actor Usuario as User
+
+rectangle "Navegador (SPA Restaurante Manager)\n(public/login.html, public/index.html)" as Browser
+
+node "Servidor Restaurante Manager\n(Node.js + Express)" as Server {
+  database "SQLite\n(database.sqlite)" as DB
+}
+
+User --> Browser : Usa via HTTP/HTTPS
+Browser --> Server : Requisições HTTP\n(arquivos estáticos + API /api/auth/*)
+Server --> DB : Consultas/Atualizações\n(sqlite3)
+
+@enduml

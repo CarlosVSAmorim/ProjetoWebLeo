@@ -1,0 +1,16 @@
+@startuml
+title Sequência - Criação de Pedido (lado cliente)
+
+actor Usuario as U
+participant "Navegador\n(index.html)" as B
+participant "Módulo JS\nadicionarPedido()" as JS
+database "localStorage\n(dados do sistema)" as LS
+
+U -> B : Seleciona mesa, item,\nquantidade, garçom
+U -> B : Clica "Adicionar Pedido"
+B -> JS : submit formPedido
+JS -> JS : Validar dados\n(calcular total)
+JS -> LS : Atualizar arrays\npedidos, mesas, vendas
+JS -> B : Atualizar UI\n(listaPedidos, mesas, etc.)
+
+@enduml

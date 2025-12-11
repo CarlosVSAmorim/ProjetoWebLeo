@@ -1,0 +1,20 @@
+@startuml
+title Containers - Restaurante Manager
+
+node "Navegador / Cliente" as Browser {
+  component "SPA Restaurante Manager\nHTML/CSS/JS\n(public/)" as SPA
+}
+
+node "Servidor Backend\nNode.js + Express\n(server.js)" as Backend {
+  component "Módulo de Autenticação\n(routes/auth.js, authMiddleware.js)" as Auth
+  component "Serviço de Dados\n(db.js)" as Data
+}
+
+database "SQLite\n(database.sqlite)" as DB
+
+Browser --> Backend : HTTP/HTTPS\nRequisições GET/POST\nCookies HttpOnly (JWT)
+Backend --> DB : Driver sqlite3\nCRUD em users
+
+SPA --> Auth : /api/auth/login\n/api/auth/logout\n/api/auth/register\n/api/auth/users
+
+@enduml

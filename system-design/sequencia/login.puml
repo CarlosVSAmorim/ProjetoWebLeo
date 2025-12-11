@@ -1,0 +1,17 @@
+@startuml
+title Sequência - Login
+
+actor Usuario as U
+participant "Navegador\n(SPA)" as B
+participant "API Express\nPOST /api/auth/login" as API
+database "SQLite" as DB
+
+U -> B : Preenche email/senha\nClica em "Login"
+B -> API : POST /api/auth/login\n{ email, password }
+API -> DB : SELECT * FROM users\nWHERE email = ?
+DB --> API : Usuário + password_hash
+API -> API : Verifica senha (bcrypt)\nGera JWT (payload: id,name,email,role)
+API --> B : 200 OK\nJSON { id, name, email, role }\nSet-Cookie: token=JWT; HttpOnly; SameSite=Lax
+B -> B : Salva currentUser\n(localStorage)\nRedireciona para index.html
+
+@enduml

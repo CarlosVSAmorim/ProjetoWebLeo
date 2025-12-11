@@ -1,0 +1,48 @@
+@startuml
+title ERD - Modelo de Dados Essencial
+
+entity "users" as users {
+  * id : INTEGER <<PK>>
+  --
+  name : TEXT
+  email : TEXT <<UNIQUE>>
+  password_hash : TEXT
+  role : TEXT ("admin" | "user")
+}
+
+' Entidades lógicas (hoje mantidas no front/localStorage)
+entity "mesas" as mesas {
+  * numero : INTEGER <<PK>>
+  status : TEXT ("livre" | "ocupada")
+}
+
+entity "pedidos" as pedidos {
+  * id : INTEGER <<PK>>
+  mesa : INTEGER
+  item : TEXT
+  quantidade : INTEGER
+  precoUnitario : REAL
+  total : REAL
+  data : TEXT
+}
+
+entity "garcons" as garcons {
+  * id : INTEGER <<PK>>
+  nome : TEXT
+  totalVendas : REAL
+  numeroPedidos : INTEGER
+}
+
+entity "cardapio" as cardapio {
+  * id : INTEGER <<PK>>
+  nome : TEXT
+  preco : REAL
+  categoria : TEXT
+  descricao : TEXT
+}
+
+mesas ||--o{ pedidos : "1-N (lógico)"
+garcons ||--o{ pedidos : "1-N (lógico)"
+cardapio ||--o{ pedidos : "1-N (lógico)"
+
+@enduml
