@@ -130,10 +130,12 @@ Na pasta `/docs/system-design` (a criar), incluir:
 
 Coloque, por exemplo, arquivos PNG/SVG gerados em qualquer ferramenta (draw.io, Excalidraw, etc.) e referencie-os aqui:
 
-- `/docs/system-design/context.png`  
-- `/docs/system-design/containers.png`  
-- `/docs/system-design/erd.png`  
-- `/docs/system-design/sequence-login.png`  
-- `/docs/system-design/sequence-pedido.png`  
+- `system-design/context.png`  
+- `system-design/containers.png`  
+- `system-design/erd.png`  
+- `system-design/sequence-login.png`  
+- `system-design/sequence-pedido.png`
+![Contexto](system-design/context.png)
+![Containers](system-design/containers.png)
 
 ---
