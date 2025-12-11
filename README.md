@@ -135,7 +135,7 @@ Coloque, por exemplo, arquivos PNG/SVG gerados em qualquer ferramenta (draw.io, 
 - `system-design/erd.png`  
 - `system-design/sequence-login.png`  
 - `system-design/sequence-pedido.png`
-![Contexto](system-design/context.png)
-![Containers](system-design/containers.png)
+![Contexto](/system-design/context.png)
+![Containers](/system-design/containers.png)
 
 ---
