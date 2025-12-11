@@ -128,19 +128,25 @@ Na pasta `/docs/system-design` (a criar), incluir:
 - `sequence-login.*` – diagrama de sequência do fluxo de login.
 - `sequence-pedido.*` – diagrama de sequência do fluxo de criação de pedido.
 
-Coloque, por exemplo, arquivos PNG/SVG gerados em qualquer ferramenta (draw.io, Excalidraw, etc.) e referencie-os aqui:
-
 ### Contexto
 ![Contexto](system-design/contexto/Contexto.png)
+
+
 
 ### Containers
 ![Containers](system-design/containers/containers.png)
 
+
+
 ### ERD
 ![ERD](system-design/erd/erd.png)
 
+
+
 ### Sequência - Login
 ![Sequência Login](system-design/sequencia/login.png)
+
+
 
 ### Sequência - Pedido
 ![Sequência Pedido](system-design/sequencia/pedido.png)
