@@ -63,8 +63,6 @@ Crie um arquivo `./.env.example` com:
 PORT=3000
 JWT_SECRET=um_segredo_muito_seguros123
 
-Esse arquivo não deve conter segredos reais; serve apenas como modelo para quem for rodar o projeto.
-
 ---
 
 ## Usuários de teste e fluxos para demonstração
