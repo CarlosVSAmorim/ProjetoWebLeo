@@ -15,7 +15,7 @@ A aplicação é composta por um backend em Node.js/Express com autenticação J
 
 ### 1. Clonar o repositório
 
-git clone https://github.com/seu-usuario/seu-repo.git
+git clone https://github.com/CarlosVSAmorim/ProjetoWebLeo?tab=readme-ov-file#containers
 cd seu-repo
 
 ### 2. Instalar dependências
