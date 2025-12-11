@@ -9,8 +9,6 @@ A aplicação é composta por um backend em Node.js/Express com autenticação J
 - **Backend**: servidor Express (`server.js`) que expõe endpoints de autenticação (`/api/auth/*`) e serve os arquivos estáticos; usa JWT armazenado em cookie HTTP‑only e middlewares `requireAuth` e `requireAdmin` para proteger as rotas.
 - **Banco de dados**: SQLite (`database.sqlite`), inicializado em `db.js`, com tabela `users` e um usuário admin padrão (`admin@local / admin123`).
 
-> Diagramas de contexto, containers, ERD e sequência estão em `/docs/system-design` (seção “Arquitetura / System Design” abaixo).
-
 ---
 
 ## Como executar o projeto
@@ -63,7 +61,7 @@ Por padrão, a aplicação ficará disponível em:
 Crie um arquivo `./.env.example` com:
 
 PORT=3000
-JWT_SECRET=changeme-super-secret
+JWT_SECRET=um_segredo_muito_seguros123
 
 Esse arquivo não deve conter segredos reais; serve apenas como modelo para quem for rodar o projeto.
 
@@ -120,8 +118,6 @@ Todos os endpoints abaixo estão versionados sob `/api/auth` e usam JSON.
 - `requireAuth` garante que o usuário esteja autenticado.
 - `requireAdmin` garante que `req.user.role === 'admin'`.
 
-> Se criar mais rotas (ex.: para cardápio/garçons no backend), adicione na tabela seguindo o mesmo formato.
-
 ---
 
 ## Arquitetura / System Design
@@ -141,29 +137,5 @@ Coloque, por exemplo, arquivos PNG/SVG gerados em qualquer ferramenta (draw.io, 
 - `/docs/system-design/erd.png`  
 - `/docs/system-design/sequence-login.png`  
 - `/docs/system-design/sequence-pedido.png`  
-
----
-
-## Coleção Postman/Insomnia (opcional)
-
-Crie uma coleção com os endpoints de autenticação e salve em:
-
-- `/docs/postman/restaurant-manager.postman_collection.json`
-
-No README, você pode mencionar:
-
-> Para testar a API diretamente, utilize a coleção Postman em `/docs/postman/restaurant-manager.postman_collection.json`.
-
----
-
-## Testes (opcional)
-
-Se quiser adicionar testes rápidos:
-
-- Use Jest + supertest para testar:
-  - `POST /api/auth/login` com credenciais válidas/ inválidas.
-  - Acesso a `/api/auth/users` com e sem cookie admin (deve retornar 403/200).  
-
-Basta criar uma pasta `tests/` e rodar com `npm test`.
 
 ---
